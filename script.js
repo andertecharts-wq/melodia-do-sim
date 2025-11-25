@@ -1,3 +1,35 @@
+// Debug to confirm script loading
+console.log('Script carregado com sucesso!');
+
+function sendToWhatsapp() {
+    console.log('Iniciando envio para WhatsApp...');
+
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const date = document.getElementById('date').value;
+    const message = document.getElementById('message').value;
+
+    if (!name || !phone) {
+        alert('Por favor, preencha pelo menos seu Nome e Telefone.');
+        return;
+    }
+
+    const whatsappNumber = '5543991916007';
+
+    let text = `*Olá! Gostaria de um orçamento para casamento.*\n\n`;
+    text += `*Nome:* ${name}\n`;
+    text += `*E-mail:* ${email}\n`;
+    text += `*Telefone:* ${phone}\n`;
+    text += `*Data:* ${date}\n`;
+    text += `*Mensagem:* ${message}`;
+
+    const encodedText = encodeURIComponent(text);
+    const url = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
+
+    window.open(url, '_blank');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Intersection Observer for Animations
     const observerOptions = {
@@ -83,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const title = item.querySelector('.media-placeholder').innerText;
 
             // Update Modal Content
-            // Use title from data if available, otherwise fallback to placeholder text
             if (musicData[genre]) {
                 modalTitle.innerText = musicData[genre].title;
             } else {
@@ -94,20 +125,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Set audio source and play
             if (musicData[genre]) {
                 console.log('Loading music:', musicData[genre].title, musicData[genre].src);
-
-                // Update modal to show loading state
                 modalTitle.innerText = musicData[genre].title + ' (Carregando...)';
-
                 audioPlayer.src = musicData[genre].src;
-                audioPlayer.load(); // Force load the audio
-
-                // Add event listeners for debugging
-                audioPlayer.addEventListener('loadstart', () => {
-                    console.log('Audio loading started');
-                });
+                audioPlayer.load();
 
                 audioPlayer.addEventListener('canplay', () => {
-                    console.log('Audio can play');
                     modalTitle.innerText = musicData[genre].title;
                 });
 
@@ -145,4 +167,13 @@ document.addEventListener('DOMContentLoaded', () => {
             audioPlayer.currentTime = 0;
         }
     });
+
+    // WhatsApp Form Handler (Legacy listener, but we use onclick now)
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            sendToWhatsapp();
+        });
+    }
 });
