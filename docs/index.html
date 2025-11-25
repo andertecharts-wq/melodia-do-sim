@@ -1,194 +1,18 @@
-﻿<!-- Updated Deployment: v5 (Unified File) -->
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melodia do Sim | MÃºsica para Casamentos</title>
-    <meta name="description"
-        content="A trilha sonora perfeita para o seu casamento. Melodia do Sim eterniza o seu 'Sim' com mÃºsica de alta qualidade.">
+    <title>Melodia do Sim | Música para Casamentos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        /* CSS from style.css */
-        :root {
-            --primary-color: #C5908E;
-            /* Rose Gold */
-            --primary-dark: #A47573;
-            --secondary-color: #4A4A4A;
-            /* Warm Grey */
-            --text-color: #333;
-            --light-bg: #FAF5F5;
-            /* Very light rose/grey tint */
-            --white: #FFFFFF;
-            --font-heading: 'Playfair Display', serif;
-            --font-body: 'Lato', sans-serif;
-            --transition: all 0.3s ease;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-body);
-            color: var(--text-color);
-            line-height: 1.6;
-            background-color: var(--white);
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: var(--font-heading);
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section {
-            padding: 80px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 3px;
-            background-color: var(--primary-color);
-            margin: 10px auto 0;
-        }
-
-        .subtitle {
-            font-size: 1.1rem;
-            color: #666;
-            margin-top: 10px;
-            font-style: italic;
-        }
-
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: 0.9rem;
-            cursor: pointer;
-            border: 2px solid transparent;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            border-color: var(--white);
-            color: var(--white);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--white);
-            color: var(--secondary-color);
-        }
-
-        .btn-block {
-            display: block;
-            width: 100%;
-        }
-
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            background-color: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            z-index: 1000;
-            padding: 10px 0;
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-img {
-            height: 60px;
-            width: auto;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 30px;
-        }
-
-        .nav-links a {
-            font-weight: 400;
-            font-size: 0.95rem;
-            color: var(--secondary-color);
-        }
-
-        .hamburger {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        /* Hero */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background_casamento.png') no-repeat center center/cover !important;
             display: flex !important;
@@ -219,366 +43,16 @@
             gap: 20px;
         }
 
-        /* Services */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .service-card {
-            background: var(--white);
-            padding: 40px 30px;
-            text-align: center;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: var(--transition);
-        }
-
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .service-card i {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-
-        .service-card h3 {
+        .hamburger {
+            display: none;
             font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        /* Portfolio */
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .portfolio-item {
-            text-align: center;
-        }
-
-        .media-placeholder {
-            width: 100%;
-            height: 200px;
-            background-color: #333;
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            margin-bottom: 15px;
             cursor: pointer;
-            position: relative;
         }
 
-        .media-placeholder::before {
-            content: '\f144';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            font-size: 3rem;
-            opacity: 0.7;
-            transition: var(--transition);
-        }
-
-        .media-placeholder:hover::before {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-
-        /* Testimonials */
-        .testimonials {
-            background-color: var(--secondary-color);
-            color: var(--white);
-            text-align: center;
-        }
-
-        .testimonials .section-header h2 {
-            color: var(--white);
-        }
-
-        .testimonials-slider {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-        }
-
-        .testimonial-card {
-            max-width: 500px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 30px;
-            border-radius: 10px;
-        }
-
-        .testimonial-card p {
-            font-style: italic;
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-card cite {
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-
-        /* Contact */
-        .contact-wrapper {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            background: var(--white);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-info {
-            padding: 50px;
-            background-color: var(--secondary-color);
-            color: var(--white);
-        }
-
-        .contact-info h2 {
-            color: var(--white);
-            margin-bottom: 20px;
-        }
-
-        .contact-details {
-            margin: 40px 0;
-        }
-
-        .contact-details li {
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            font-size: 1.1rem;
-        }
-
-        .contact-details i {
-            color: var(--primary-color);
-            width: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 20px;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            color: var(--white);
-            transition: var(--transition);
-        }
-
-        .social-links a:hover {
-            background: var(--primary-color);
-        }
-
-        .contact-form {
-            padding: 50px;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-family: var(--font-body);
-            font-size: 1rem;
-            transition: var(--transition);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary-color);
-        }
-
-        /* Footer */
-        footer {
-            background-color: #1a252f;
-            color: #888;
-            text-align: center;
-            padding: 30px 0;
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        .fade-in-up {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in-left {
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .fade-in-right {
-            opacity: 0;
-            transform: translateX(30px);
-            transition: opacity 0.8s ease, transform 0.8s ease;
-        }
-
-        .visible {
-            opacity: 1;
-            transform: translateY(0) translateX(0);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-links {
-                display: none;
-            }
-
             .hamburger {
                 display: block;
             }
-
-            .about-content,
-            .contact-wrapper {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .contact-info,
-            .contact-form {
-                padding: 30px;
-            }
-        }
-
-        /* Modal */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 2000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .modal.show {
-            display: flex;
-            opacity: 1;
-        }
-
-        .modal-content {
-            background-color: var(--white);
-            padding: 40px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-            text-align: center;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-            transform: scale(0.8);
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        .modal.show .modal-content {
-            transform: scale(1);
-        }
-
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 20px;
-            font-size: 2rem;
-            font-weight: bold;
-            color: #aaa;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .close-modal:hover {
-            color: var(--primary-color);
-        }
-
-        .audio-visualizer {
-            display: flex;
-            justify-content: center;
-            gap: 5px;
-            height: 50px;
-            margin-bottom: 30px;
-            align-items: flex-end;
-        }
-
-        .bar {
-            width: 8px;
-            background-color: var(--primary-color);
-            height: 10px;
-            border-radius: 5px;
-            animation: bounce 1s infinite ease-in-out;
-        }
-
-        .bar:nth-child(1) {
-            animation-delay: 0.0s;
-        }
-
-        .bar:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .bar:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        .bar:nth-child(4) {
-            animation-delay: 0.1s;
-        }
-
-        .bar:nth-child(5) {
-            animation-delay: 0.3s;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            100% {
-                height: 10px;
-            }
-
-            50% {
-                height: 40px;
-            }
-        }
-
-        audio {
-            width: 100%;
-            outline: none;
         }
     </style>
 </head>
@@ -588,11 +62,11 @@
         <div class="container">
             <a href="#" class="logo"><img src="logo.png" alt="Melodia do Sim" class="logo-img"></a>
             <ul class="nav-links">
-                <li><a href="#home">InÃ­cio</a></li>
-                <li><a href="#about">Sobre NÃ³s</a></li>
-                <li><a href="#services">ServiÃ§os</a></li>
-                <li><a href="#portfolio">RepertÃ³rio</a></li>
-                <li><a href="#contact" class="btn-nav">OrÃ§amento</a></li>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#about">Sobre Nós</a></li>
+                <li><a href="#services">Serviços</a></li>
+                <li><a href="#portfolio">Repertório</a></li>
+                <li><a href="#contact" class="btn-nav">Orçamento</a></li>
             </ul>
             <div class="hamburger"><i class="fas fa-bars"></i></div>
         </div>
@@ -602,10 +76,10 @@
         <div class="hero-overlay"></div>
         <div class="hero-content fade-in-up">
             <img src="logo.png" alt="Melodia do Sim" class="hero-logo">
-            <p>A canÃ§Ã£o que eterniza o seu "Sim".</p>
+            <p>A canção que eterniza o seu "Sim".</p>
             <div class="hero-buttons">
-                <a href="#contact" class="btn btn-primary">Solicitar OrÃ§amento</a>
-                <a href="#portfolio" class="btn btn-outline">Ouvir DemonstraÃ§Ãµes</a>
+                <a href="#contact" class="btn btn-primary">Solicitar Orçamento</a>
+                <a href="#portfolio" class="btn btn-outline">Ouvir Demonstrações</a>
             </div>
         </div>
     </header>
@@ -613,20 +87,19 @@
     <section id="about" class="section about">
         <div class="container">
             <div class="section-header">
-                <h2>Nossa EssÃªncia</h2>
-                <p class="subtitle">Mais que mÃºsica, criamos memÃ³rias.</p>
+                <h2>Nossa Essência</h2>
+                <p class="subtitle">Mais que música, criamos memórias.</p>
             </div>
             <div class="about-content" style="text-align: center;">
-                <img src="foto_casal.png" alt="PatrÃ­cia e Anderson" class="about-photo"
-                    style="max-width:200px; border-radius:50%; margin-bottom:20px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"
-                    onerror="alert('Erro ao carregar imagem: ' + this.src)">
+                <img src="foto_casal.png" alt="Patrícia e Anderson"
+                    style="max-width:200px; border-radius:50%; margin-bottom:20px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
                 <div class="about-text fade-in-up" style="max-width:800px; margin:0 auto;">
-                    <p>Na <strong>Melodia do Sim</strong>, entendemos que cada casamento Ã© uma histÃ³ria de amor Ãºnica
-                        sendo contada. Nossa missÃ£o Ã© traduzir essa emoÃ§Ã£o em notas musicais, criando a atmosfera
+                    <p>Na <strong>Melodia do Sim</strong>, entendemos que cada casamento é uma história de amor única
+                        sendo contada. Nossa missão é traduzir essa emoção em notas musicais, criando a atmosfera
                         perfeita para o dia mais importante da sua vida.</p>
-                    <p>Com mÃºsicos experientes e apaixonados, oferecemos arranjos personalizados que vÃ£o do clÃ¡ssico
-                        erudito ao popular contemporÃ¢neo, garantindo sofisticaÃ§Ã£o e emoÃ§Ã£o em cada compasso.</p>
-                    <p style="margin-top: 20px; font-size: 1.2rem; color: var(--primary-color);"><strong>PatrÃ­cia &amp;
+                    <p>Com músicos experientes e apaixonados, oferecemos arranjos personalizados que vão do clássico
+                        erudito ao popular contemporâneo, garantindo sofisticação e emoção em cada compasso.</p>
+                    <p style="margin-top: 20px; font-size: 1.2rem; color: var(--primary-color);"><strong>Patrícia &amp;
                             Anderson</strong></p>
                 </div>
             </div>
@@ -636,25 +109,25 @@
     <section id="services" class="section services">
         <div class="container">
             <div class="section-header">
-                <h2>Nossos ServiÃ§os</h2>
+                <h2>Nossos Serviços</h2>
                 <p class="subtitle">Formatos ideais para cada momento do seu dia.</p>
             </div>
             <div class="services-grid">
                 <div class="service-card fade-in-up">
                     <i class="fas fa-church"></i>
-                    <h3>CerimÃ´nia</h3>
-                    <p>AnimaÃ§Ã£o musical para emocionar na entrada dos noivos e momentos especiais da cerimÃ´nia.</p>
+                    <h3>Cerimônia</h3>
+                    <p>Animação musical para emocionar na entrada dos noivos e momentos especiais da cerimônia.</p>
                 </div>
                 <div class="service-card fade-in-up" style="transition-delay:0.1s;">
                     <i class="fas fa-glass-cheers"></i>
                     <h3>Coquetel</h3>
-                    <p>Jazz, Bossa Nova, Pop acÃºstico ou EletrÃ´nica para criar um ambiente elegante e descontraÃ­do
+                    <p>Jazz, Bossa Nova, Pop acústico ou Eletrônica para criar um ambiente elegante e descontraído
                         enquanto os convidados interagem.</p>
                 </div>
                 <div class="service-card fade-in-up" style="transition-delay:0.2s;">
                     <i class="fas fa-compact-disc"></i>
-                    <h3>RecepÃ§Ã£o</h3>
-                    <p>DJ para animar a festa e garantir que ninguÃ©m fique parado na pista de danÃ§a.</p>
+                    <h3>Recepção</h3>
+                    <p>DJ para animar a festa e garantir que ninguém fique parado na pista de dança.</p>
                 </div>
             </div>
         </div>
@@ -663,21 +136,21 @@
     <section id="portfolio" class="section portfolio">
         <div class="container">
             <div class="section-header">
-                <h2>OuÃ§a e Sinta</h2>
-                <p class="subtitle">Um pouco do nosso repertÃ³rio.</p>
+                <h2>Ouça e Sinta</h2>
+                <p class="subtitle">Um pouco do nosso repertório.</p>
             </div>
             <div class="portfolio-grid">
                 <div class="portfolio-item fade-in-up">
                     <div class="media-placeholder">Marcha Nupcial</div>
-                    <h4>ClÃ¡ssicos</h4>
+                    <h4>Clássicos</h4>
                 </div>
                 <div class="portfolio-item fade-in-up">
                     <div class="media-placeholder">Hallelujah</div>
-                    <h4>RomÃ¢ntico Moderno</h4>
+                    <h4>Romântico Moderno</h4>
                 </div>
                 <div class="portfolio-item fade-in-up">
                     <div class="media-placeholder">Hear Me Now</div>
-                    <h4>EletrÃ´nica</h4>
+                    <h4>Eletrônica</h4>
                 </div>
             </div>
         </div>
@@ -690,12 +163,12 @@
             </div>
             <div class="testimonials-slider">
                 <div class="testimonial-card fade-in-up">
-                    <p>"Foi simplesmente mÃ¡gico! A mÃºsica na igreja fez todos chorarem. A Melodia do Sim foi impecÃ¡vel!"
+                    <p>"Foi simplesmente mágico! A música na igreja fez todos chorarem. A Melodia do Sim foi impecável!"
                     </p>
-                    <cite>- AndrÃ©a &amp; JoÃ£o</cite>
+                    <cite>- Andréa &amp; João</cite>
                 </div>
                 <div class="testimonial-card fade-in-up">
-                    <p>"A mÃºsica eletrÃ´nica na festa foi incrÃ­vel! Todo mundo danÃ§ou a noite inteira. A Melodia do Sim
+                    <p>"A música eletrônica na festa foi incrível! Todo mundo dançou a noite inteira. A Melodia do Sim
                         superou nossas expectativas!"</p>
                     <cite>- Adrielle &amp; Tiago</cite>
                 </div>
@@ -708,7 +181,7 @@
             <div class="contact-wrapper">
                 <div class="contact-info fade-in-left">
                     <h2>Vamos Conversar?</h2>
-                    <p>Entre em contato para verificarmos a disponibilidade e prepararmos um orÃ§amento personalizado
+                    <p>Entre em contato para verificarmos a disponibilidade e prepararmos um orçamento personalizado
                         para o seu grande dia.</p>
                     <ul class="contact-details">
                         <li><i class="fab fa-whatsapp"></i> (43) 99191-6007</li>
@@ -721,15 +194,14 @@
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>
-                <form id="contactForm" class="contact-form fade-in-right"
-                    onsubmit="event.preventDefault(); sendToWhatsapp();">
+                <form id="contactForm" class="contact-form fade-in-right">
                     <div class="form-group"><input type="text" id="name" placeholder="Seu Nome" required></div>
                     <div class="form-group"><input type="email" id="email" placeholder="Seu E-mail" required></div>
                     <div class="form-group"><input type="tel" id="phone" placeholder="Telefone / WhatsApp" required>
                     </div>
                     <div class="form-group"><input type="date" id="date" placeholder="Data do Casamento"></div>
                     <div class="form-group"><textarea id="message"
-                            placeholder="Conte-nos sobre seu sonho (Local, estilo, mÃºsicas especiais...)"
+                            placeholder="Conte-nos sobre seu sonho (Local, estilo, músicas especiais...)"
                             rows="5"></textarea></div>
                     <button type="submit" class="btn btn-primary btn-block"><i class="fab fa-whatsapp"></i> Enviar por
                         WhatsApp</button>
@@ -748,8 +220,8 @@
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <div class="modal-header">
-                <h3 id="modal-title">Nome da MÃºsica</h3>
-                <p id="modal-genre">GÃªnero</p>
+                <h3 id="modal-title">Nome da Música</h3>
+                <p id="modal-genre">Gênero</p>
             </div>
             <div class="modal-body">
                 <div class="audio-visualizer">
@@ -761,20 +233,15 @@
                 </div>
                 <audio id="audio-player" controls>
                     <source src="" type="audio/mpeg">
-                    Seu navegador nÃ£o suporta o elemento de Ã¡udio.
+                    Seu navegador não suporta o elemento de áudio.
                 </audio>
             </div>
         </div>
     </div>
 
+    <script src="script.js"></script>
     <script>
-        // JS from script.js
-        console.log('Script carregado com sucesso!');
-        alert('Site carregado! Se vocÃª vÃª isso, o script estÃ¡ funcionando.');
-
         function sendToWhatsapp() {
-            console.log('Iniciando envio para WhatsApp...');
-
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
@@ -787,99 +254,19 @@
             }
 
             const whatsappNumber = '5543991916007';
-
-            let text = `*OlÃ¡! Gostaria de um orÃ§amento para casamento.*\n\n`;
-            text += `*Nome:* ${name}\n`;
-            text += `*E-mail:* ${email}\n`;
-            text += `*Telefone:* ${phone}\n`;
-            text += `*Data:* ${date}\n`;
-            text += `*Mensagem:* ${message}`;
+    text = '*Olá! Gostaria de um orçamento para casamento.*\\n\\n';
+            text += '*Nome:* ' + name + '\\n';
+            text += '*E-mail:* ' + email + '\\n';
+            text += '*Telefone:* ' + phone + '\\n';
+            text += '*Data:* ' + date + '\\n';
+            text += '*Mensagem:* ' + message;
 
             const encodedText = encodeURIComponent(text);
-            const url = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
-
-            window.open(url, '_blank');
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            // Intersection Observer for Animations
-            const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-            const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
-            animatedElements.forEach(el => observer.observe(el));
-
-            // Smooth Scrolling
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({ top: targetElement.offsetTop - 70, behavior: 'smooth' });
-                    }
-                });
-            });
-
-            // Mobile Menu
-            const hamburger = document.querySelector('.hamburger');
-            const navLinks = document.querySelector('.nav-links');
-            if (hamburger) {
-                hamburger.addEventListener('click', () => {
-                    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-                    if (navLinks.style.display === 'flex') {
-                        navLinks.style.flexDirection = 'column';
-                        navLinks.style.position = 'absolute';
-                        navLinks.style.top = '70px';
-                        navLinks.style.left = '0';
-                        navLinks.style.width = '100%';
-                        navLinks.style.backgroundColor = '#fff';
-                        navLinks.style.padding = '20px';
-                        navLinks.style.boxShadow = '0 5px 10px rgba(0,0,0,0.1)';
-                    }
-                });
-            }
-
-            // Music Player
-            const modal = document.getElementById('music-modal');
-            const closeModal = document.querySelector('.close-modal');
-            const audioPlayer = document.getElementById('audio-player');
-            const modalTitle = document.getElementById('modal-title');
-            const modalGenre = document.getElementById('modal-genre');
-            const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-            const musicData = {
-                'ClÃ¡ssicos': { title: 'Marcha Nupcial de Mendelssohn', src: 'https://palcocdn.akamaized.net/9/3/5/e/musicalforever-marcha-nupcial-de-mendelsson-bd5b7c4f.mp3' },
-                'RomÃ¢ntico Moderno': { title: 'Hallelujah (Violin Cover)', src: 'https://palcocdn.akamaized.net/a/2/4/2/groovearigor-wedding-violin-hallelujah-from-film-shrek-violin-cover-b774fd.mp3' },
-                'EletrÃ´nica': { title: 'Hear Me Now (Alok Remix)', src: 'https://palcocdn.akamaized.net/a/e/3/e/stylegold-alok-bruno-martini-feat-zeeba-hear-me-now-style-gold-remix-a151d52a.mp3' }
-            };
-
-            portfolioItems.forEach(item => {
-                item.addEventListener('click', () => {
-                    const genre = item.querySelector('h4').innerText;
-                    const title = item.querySelector('.media-placeholder').innerText;
-                    if (musicData[genre]) { modalTitle.innerText = musicData[genre].title; } else { modalTitle.innerText = title; }
-                    modalGenre.innerText = genre;
-                    if (musicData[genre]) {
-                        modalTitle.innerText = musicData[genre].title + ' (Carregando...)';
-                        audioPlayer.src = musicData[genre].src;
-                        audioPlayer.load();
-                        audioPlayer.addEventListener('canplay', () => { modalTitle.innerText = musicData[genre].title; });
-                        audioPlayer.addEventListener('error', (e) => { modalTitle.innerText = musicData[genre].title + ' (Erro ao carregar)'; alert('Erro ao carregar a mÃºsica.'); });
-                        audioPlayer.play().catch(e => { alert("Erro ao reproduzir a mÃºsica."); });
-                    }
-                    modal.classList.add('show');
-                });
-            });
-
-            closeModal.addEventListener('click', () => { modal.classList.remove('show'); audioPlayer.pause(); audioPlayer.currentTime = 0; });
-            window.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.remove('show'); audioPlayer.pause(); audioPlayer.currentTime = 0; } });
+            const url = 'https://wa.me/' + whatsappNumber + '?text=' + encodedText;
+            window.open(url, '_blank   
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            sendToWhatsapp();
         });
     </script>
 </body>
