@@ -136,6 +136,7 @@ app.get('/api/disponibilidade/:data', (req, res) => {
 });
 
 app.listen(PORT, () => {
-    console.log(`🎵 Servidor rodando em http://localhost:${PORT}`);
-    console.log(`📅 Painel administrativo: http://localhost:${PORT}/admin.html`);
+    console.log(`Servidor rodando na porta ${PORT}`);
+    console.log(`Acesse: http://localhost:${PORT}`);
+    console.log('Backend Melodia do Sim - Versão 1.1 - Deploy Forçado');
 });
