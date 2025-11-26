@@ -64,6 +64,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            flex-wrap: wrap;
         }
 
         .tab-btn {
@@ -137,10 +138,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
 
         .evento-info {
             flex: 1;
+            min-width: 250px;
         }
 
         .evento-info h4 {
@@ -156,6 +160,7 @@
         .evento-actions {
             display: flex;
             gap: 10px;
+            flex-wrap: wrap;
         }
 
         .evento-actions button {
@@ -280,6 +285,19 @@
         .btn-primary:hover {
             background: #A47573;
         }
+
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .success-message.show {
+            display: block;
+        }
     </style>
 </head>
 
@@ -294,6 +312,7 @@
             <button class="tab-btn active" onclick="showTab('eventos')">📅 Eventos</button>
             <button class="tab-btn" onclick="showTab('midia')">🎬 Mídia</button>
             <button class="tab-btn" onclick="showTab('comentarios')">💬 Comentários</button>
+            <button class="tab-btn" onclick="showTab('configuracoes')">⚙️ Configurações</button>
         </div>
 
         <!-- Tab Eventos -->
@@ -368,6 +387,35 @@
                 </div>
             </div>
         </div>
+
+        <!-- Tab Configurações -->
+        <div id="configuracoes" class="tab-content">
+            <div class="card">
+                <h2>Redes Sociais</h2>
+                <div class="success-message" id="successMessage">
+                    Configurações salvas com sucesso!
+                </div>
+                <form id="configForm" onsubmit="salvarConfiguracoes(event)">
+                    <div class="form-group">
+                        <label><i class="fab fa-instagram"></i> Instagram</label>
+                        <input type="url" id="instagram" placeholder="https://instagram.com/seu_perfil">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fab fa-facebook"></i> Facebook</label>
+                        <input type="url" id="facebook" placeholder="https://facebook.com/sua_pagina">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fab fa-youtube"></i> YouTube</label>
+                        <input type="url" id="youtube" placeholder="https://youtube.com/@seu_canal">
+                    </div>
+                    <button type="submit" class="btn-primary">Salvar Configurações</button>
+                </form>
+                <p style="margin-top: 20px; color: #666; font-size: 0.9rem;">
+                    <strong>Nota:</strong> Após salvar, os links serão atualizados no site.
+                    Você precisará atualizar o site no GitHub Pages manualmente ou aguardar a próxima atualização.
+                </p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -405,7 +453,7 @@
 
         async function carregarEventos() {
             try {
-                const response = await fetch('http://localhost:3000/api/eventos');
+                const response = await fetch('/api/eventos');
                 eventos = await response.json();
                 atualizarEstatisticas();
                 renderizarEventos();
@@ -464,7 +512,7 @@
 
         async function atualizarStatus(id, status) {
             try {
-                await fetch(`http://localhost:3000/api/eventos/${id}/status`, {
+                await fetch(`/api/eventos/${id}/status`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ status })
@@ -479,7 +527,7 @@
             if (!confirm('Tem certeza que deseja deletar este evento?')) return;
 
             try {
-                await fetch(`http://localhost:3000/api/eventos/${id}`, {
+                await fetch(`/api/eventos/${id}`, {
                     method: 'DELETE'
                 });
                 carregarEventos();
@@ -488,9 +536,8 @@
             }
         }
 
-        // Upload de mídia (simulado - salvando no localStorage)
+        // Upload de mídia
         function uploadFiles(files) {
-            const mediaGrid = document.getElementById('mediaGrid');
             let mediaItems = JSON.parse(localStorage.getItem('mediaItems') || '[]');
 
             Array.from(files).forEach(file => {
@@ -598,10 +645,37 @@
             renderizarComentarios();
         }
 
+        // Configurações de Redes Sociais
+        function carregarConfiguracoes() {
+            const config = JSON.parse(localStorage.getItem('socialConfig') || '{}');
+            document.getElementById('instagram').value = config.instagram || '';
+            document.getElementById('facebook').value = config.facebook || '';
+            document.getElementById('youtube').value = config.youtube || '';
+        }
+
+        function salvarConfiguracoes(event) {
+            event.preventDefault();
+
+            const config = {
+                instagram: document.getElementById('instagram').value,
+                facebook: document.getElementById('facebook').value,
+                youtube: document.getElementById('youtube').value
+            };
+
+            localStorage.setItem('socialConfig', JSON.stringify(config));
+
+            const successMsg = document.getElementById('successMessage');
+            successMsg.classList.add('show');
+            setTimeout(() => {
+                successMsg.classList.remove('show');
+            }, 3000);
+        }
+
         // Inicializar
         carregarEventos();
         renderizarMidia();
         renderizarComentarios();
+        carregarConfiguracoes();
         setInterval(carregarEventos, 30000);
     </script>
 </body>

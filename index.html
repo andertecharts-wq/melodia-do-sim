@@ -612,24 +612,11 @@
 
     <section id="about" class="section about">
         <div class="container">
-            <div class="section-header">
-                <h2>Nossa Essência</h2>
-                <p class="subtitle">Mais que música, criamos memórias.</p>
-            </div>
-            <div class="about-content" style="text-align: center;">
-                <img src="foto_casal.png" alt="Patrícia e Anderson" class="about-photo"
-                    style="max-width:200px; border-radius:50%; margin-bottom:20px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);"
-                    onerror="alert('Erro ao carregar imagem: ' + this.src)">
-                <div class="about-text fade-in-up" style="max-width:800px; margin:0 auto;">
-                    <p>Na <strong>Melodia do Sim</strong>, entendemos que cada casamento é uma história de amor única
-                        sendo contada. Nossa missão é traduzir essa emoção em notas musicais, criando a atmosfera
-                        perfeita para o dia mais importante da sua vida.</p>
-                    <p>Com músicos experientes e apaixonados, oferecemos arranjos personalizados que vão do clássico
-                        erudito ao popular contemporâneo, garantindo sofisticação e emoção em cada compasso.</p>
-                    <p style="margin-top: 20px; font-size: 1.2rem; color: var(--primary-color);"><strong>Patrícia &amp;
-                            Anderson</strong></p>
-                </div>
-            </div>
+            erudito ao popular contemporâneo, garantindo sofisticação e emoção em cada compasso.</p>
+            <p style="margin-top: 20px; font-size: 1.2rem; color: var(--primary-color);"><strong>Patrícia &amp;
+                    Anderson</strong></p>
+        </div>
+        </div>
         </div>
     </section>
 
@@ -762,90 +749,124 @@
                 <audio id="audio-player" controls>
                     <source src="" type="audio/mpeg">
                     Seu navegador não suporta o elemento de áudio.
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                    }
-                    });
-                    }, observerOptions);
-                    const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
-                    animatedElements.forEach(el => observer.observe(el));
+                </audio>
+                const date = document.getElementById('date').value;
+                const message = document.getElementById('message').value;
 
-                    // Smooth Scrolling
-                    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                    anchor.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href');
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                    window.scrollTo({ top: targetElement.offsetTop - 70, behavior: 'smooth' });
-                    }
-                    });
-                    });
+                if (!name || !phone) {
+                alert('Por favor, preencha pelo menos seu Nome e Telefone.');
+                return;
+                }
 
-                    // Mobile Menu
-                    const hamburger = document.querySelector('.hamburger');
-                    const navLinks = document.querySelector('.nav-links');
-                    if (hamburger) {
-                    hamburger.addEventListener('click', () => {
-                    navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-                    if (navLinks.style.display === 'flex') {
-                    navLinks.style.flexDirection = 'column';
-                    navLinks.style.position = 'absolute';
-                    navLinks.style.top = '70px';
-                    navLinks.style.left = '0';
-                    navLinks.style.width = '100%';
-                    navLinks.style.backgroundColor = '#fff';
-                    navLinks.style.padding = '20px';
-                    navLinks.style.boxShadow = '0 5px 10px rgba(0,0,0,0.1)';
-                    }
-                    });
-                    }
+                const whatsappNumber = '5543991916007';
 
-                    // Music Player
-                    const modal = document.getElementById('music-modal');
-                    const closeModal = document.querySelector('.close-modal');
-                    const audioPlayer = document.getElementById('audio-player');
-                    const modalTitle = document.getElementById('modal-title');
-                    const modalGenre = document.getElementById('modal-genre');
-                    const portfolioItems = document.querySelectorAll('.portfolio-item');
+                let text = `*Olá! Gostaria de um orçamento para casamento.*\n\n`;
+                text += `*Nome:* ${name}\n`;
+                text += `*E-mail:* ${email}\n`;
+                text += `*Telefone:* ${phone}\n`;
+                text += `*Data:* ${date}\n`;
+                text += `*Mensagem:* ${message}`;
 
-                    const musicData = {
-                    'Clássicos': { title: 'Marcha Nupcial de Mendelssohn', src:
-                    'https://palcocdn.akamaized.net/9/3/5/e/musicalforever-marcha-nupcial-de-mendelsson-bd5b7c4f.mp3' },
-                    'Romântico Moderno': { title: 'Hallelujah (Violin Cover)', src:
-                    'https://palcocdn.akamaized.net/a/2/4/2/groovearigor-wedding-violin-hallelujah-from-film-shrek-violin-cover-b774fd.mp3'
-                    },
-                    'Eletrônica': { title: 'Hear Me Now (Alok Remix)', src:
-                    'https://palcocdn.akamaized.net/a/e/3/e/stylegold-alok-bruno-martini-feat-zeeba-hear-me-now-style-gold-remix-a151d52a.mp3'
-                    }
-                    };
+                const encodedText = encodeURIComponent(text);
+                const url = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
 
-                    portfolioItems.forEach(item => {
-                    item.addEventListener('click', () => {
-                    const genre = item.querySelector('h4').innerText;
-                    const title = item.querySelector('.media-placeholder').innerText;
-                    if (musicData[genre]) { modalTitle.innerText = musicData[genre].title; } else { modalTitle.innerText
-                    = title; }
-                    modalGenre.innerText = genre;
-                    if (musicData[genre]) {
-                    modalTitle.innerText = musicData[genre].title + ' (Carregando...)';
-                    audioPlayer.src = musicData[genre].src;
-                    audioPlayer.load();
-                    audioPlayer.addEventListener('canplay', () => { modalTitle.innerText = musicData[genre].title; });
-                    audioPlayer.addEventListener('error', (e) => { modalTitle.innerText = musicData[genre].title + '
-                    (Erro ao carregar)'; alert('Erro ao carregar a música.'); });
-                    audioPlayer.play().catch(e => { alert("Erro ao reproduzir a música."); });
-                    }
-                    modal.classList.add('show');
-                    });
-                    });
+                window.open(url, '_blank');
+                }
 
-                    closeModal.addEventListener('click', () => { modal.classList.remove('show'); audioPlayer.pause();
-                    audioPlayer.currentTime = 0; });
-                    window.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.remove('show');
-                    audioPlayer.pause(); audioPlayer.currentTime = 0; } });
-                    });
-                    </script>
+                document.addEventListener('DOMContentLoaded', () => {
+                // Intersection Observer for Animations
+                const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+                const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+                }
+                });
+                }, observerOptions);
+                const animatedElements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right');
+                animatedElements.forEach(el => observer.observe(el));
+
+                // Smooth Scrolling
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                window.scrollTo({ top: targetElement.offsetTop - 70, behavior: 'smooth' });
+                }
+                });
+                });
+
+                // Mobile Menu
+                const hamburger = document.querySelector('.hamburger');
+                const navLinks = document.querySelector('.nav-links');
+                if (hamburger) {
+                hamburger.addEventListener('click', () => {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                if (navLinks.style.display === 'flex') {
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '70px';
+                navLinks.style.left = '0';
+                navLinks.style.width = '100%';
+                navLinks.style.backgroundColor = '#fff';
+                navLinks.style.padding = '20px';
+                navLinks.style.boxShadow = '0 5px 10px rgba(0,0,0,0.1)';
+                }
+                });
+                }
+
+                // Music Player
+                const modal = document.getElementById('music-modal');
+                const closeModal = document.querySelector('.close-modal');
+                const audioPlayer = document.getElementById('audio-player');
+                const modalTitle = document.getElementById('modal-title');
+                const modalGenre = document.getElementById('modal-genre');
+                const portfolioItems = document.querySelectorAll('.portfolio-item');
+
+                const musicData = {
+                'Clássicos': { title: 'Marcha Nupcial de Mendelssohn', src:
+                'https://palcocdn.akamaized.net/9/3/5/e/musicalforever-marcha-nupcial-de-mendelsson-bd5b7c4f.mp3' },
+                'Romântico Moderno': { title: 'Hallelujah (Violin Cover)', src:
+                'https://palcocdn.akamaized.net/a/2/4/2/groovearigor-wedding-violin-hallelujah-from-film-shrek-violin-cover-b774fd.mp3'
+                },
+                'Eletrônica': { title: 'Hear Me Now (Alok Remix)', src:
+                'https://palcocdn.akamaized.net/a/e/3/e/stylegold-alok-bruno-martini-feat-zeeba-hear-me-now-style-gold-remix-a151d52a.mp3'
+                }
+                };
+
+                portfolioItems.forEach(item => {
+                item.addEventListener('click', () => {
+                const genre = item.querySelector('h4').innerText;
+                const title = item.querySelector('.media-placeholder').innerText;
+                if (musicData[genre]) { modalTitle.innerText = musicData[genre].title; } else { modalTitle.innerText =
+                title; }
+                modalGenre.innerText = genre;
+                if (musicData[genre]) {
+                modalTitle.innerText = musicData[genre].title + ' (Carregando...)';
+                audioPlayer.src = musicData[genre].src;
+                audioPlayer.load();
+                audioPlayer.addEventListener('canplay', () => { modalTitle.innerText = musicData[genre].title; });
+                audioPlayer.addEventListener('error', (e) => { modalTitle.innerText = musicData[genre].title + ' (Erro
+                ao carregar)'; alert('Erro ao carregar a música.'); });
+                audioPlayer.play().catch(e => { alert("Erro ao reproduzir a música."); });
+                }
+                modal.classList.add('show');
+                });
+                });
+
+                closeModal.addEventListener('click', () => { modal.classList.remove('show'); audioPlayer.pause();
+                audioPlayer.currentTime = 0; });
+                window.addEventListener('click', (e) => { if (e.target === modal) { modal.classList.remove('show');
+                audioPlayer.pause(); audioPlayer.currentTime = 0; } });
+                });
+                </script>
+    
+    <!-- Configura��es e Enhancements -->
+    <script src="config.js"></script>
+    <script src="enhancements.js"></script>
 </body>
 
 </html>
