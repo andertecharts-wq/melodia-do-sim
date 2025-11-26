@@ -8,8 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // 2. Adicionar botão de admin no rodapé
     addAdminButton();
 
-    // 3. Conectar formulário ao backend (opcional - mantém WhatsApp como principal)
-    // setupBackendIntegration();
+    // 3. Conectar formulário ao backend
+    setupBackendIntegration();
 });
 
 // Atualizar links de redes sociais com URLs reais
@@ -45,40 +45,54 @@ function updateSocialMediaLinks() {
     console.log('✅ Links de redes sociais atualizados');
 }
 
-// Adicionar botão discreto de admin no rodapé
+// Adicionar botão de admin no menu principal
 function addAdminButton() {
     const config = window.MELODIA_CONFIG || {
         adminPanelUrl: 'https://melodia-do-sim-backend.onrender.com/login.html'
     };
 
-    const footer = document.querySelector('footer .container');
-    if (!footer) return;
+    // Tenta encontrar o menu de navegação
+    const navMenu = document.querySelector('nav ul') || document.querySelector('.nav-links') || document.querySelector('header ul');
 
-    // Criar link discreto para admin
+    if (!navMenu) {
+        console.log('⚠️ Menu de navegação não encontrado para adicionar botão Admin');
+        return;
+    }
+
+    // Criar item de lista para o botão
+    const adminLi = document.createElement('li');
+
+    // Criar o link/botão
     const adminLink = document.createElement('a');
     adminLink.href = config.adminPanelUrl;
     adminLink.target = '_blank';
     adminLink.rel = 'noopener noreferrer';
+    adminLink.className = 'btn-admin-menu'; // Classe para estilização específica se necessário
+    adminLink.innerHTML = '<i class="fas fa-lock"></i> Área Admin';
+
+    // Estilização inline para garantir destaque (pode ser movido para CSS depois)
     adminLink.style.cssText = `
-        display: inline-block;
-        margin-top: 10px;
-        font-size: 0.75rem;
-        color: #666;
-        opacity: 0.5;
-        transition: opacity 0.3s ease;
+        background-color: #d4af37;
+        color: white;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        transition: background 0.3s;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
+        margin-left: 10px;
     `;
-    adminLink.innerHTML = '<i class="fas fa-lock"></i> Painel Admin';
 
-    adminLink.addEventListener('mouseenter', function () {
-        this.style.opacity = '1';
-    });
+    // Efeito hover
+    adminLink.addEventListener('mouseenter', () => adminLink.style.backgroundColor = '#c5a028');
+    adminLink.addEventListener('mouseleave', () => adminLink.style.backgroundColor = '#d4af37');
 
-    adminLink.addEventListener('mouseleave', function () {
-        this.style.opacity = '0.5';
-    });
+    adminLi.appendChild(adminLink);
+    navMenu.appendChild(adminLi);
 
-    footer.appendChild(adminLink);
-    console.log('✅ Botão de admin adicionado ao rodapé');
+    console.log('✅ Botão de admin adicionado ao menu principal');
 }
 
 // Integração com backend (opcional - salva dados no banco além do WhatsApp)
