@@ -182,12 +182,29 @@
                 <div class="contact-info fade-in-left">
                     <h2>Vamos Conversar?</h2>
                     <p>Entre em contato para verificarmos a disponibilidade e prepararmos um orçamento personalizado
+                        para o seu grande dia.</p>
+                    <ul class="contact-details">
+                        <li><i class="fab fa-whatsapp"></i> (43) 99191-6007</li>
+                        <li><i class="far fa-envelope"></i> contato@melodiadosim.com.br</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Tamarana, PR</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
-                <div class="form-group"><input type="date" id="date" placeholder="Data do Casamento"></div>
-                <div class="form-group"><textarea id="message"
-                        placeholder="Conte-nos sobre seu sonho (Local, estilo, músicas especiais...)"
-                        rows="5"></textarea></div>
-                <button type="submit" class="btn btn-primary btn-block"><i class="fab fa-whatsapp"></i> Enviar por
+                <form id="contactForm" class="contact-form fade-in-right">
+                    <div class="form-group"><input type="text" id="name" placeholder="Seu Nome" required></div>
+                    <div class="form-group"><input type="email" id="email" placeholder="Seu E-mail" required></div>
+                    <div class="form-group"><input type="tel" id="phone" placeholder="Telefone / WhatsApp" required>
+                    </div>
+                    <div class="form-group"><input type="date" id="date" placeholder="Data do Casamento"></div>
+                    <div class="form-group"><textarea id="message"
+                            placeholder="Conte-nos sobre seu sonho (Local, estilo, músicas especiais...)"
+                            rows="5"></textarea></div>
+                    <button type="submit" class="btn btn-primary btn-block"><i class="fab fa-whatsapp"></i> Enviar por
+                        WhatsApp</button>
                     <h3 id="modal-title">Nome da Música</h3>
                     <p id="modal-genre">Gênero</p>
             </div>
