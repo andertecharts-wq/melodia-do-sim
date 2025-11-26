@@ -206,69 +206,56 @@
                     <button type="submit" class="btn btn-primary btn-block"><i class="fab fa-whatsapp"></i> Enviar por
                         WhatsApp</button>
                 </form>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Melodia do Sim. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-
-    <div id="music-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="modal-header">
-                <h3 id="modal-title">Nome da Música</h3>
-                <p id="modal-genre">Gênero</p>
-            </div>
-            <div class="modal-body">
-                <div class="audio-visualizer">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
+                <div class="modal-header">
+                    <h3 id="modal-title">Nome da Música</h3>
+                    <p id="modal-genre">Gênero</p>
                 </div>
-                <audio id="audio-player" controls>
-                    <source src="" type="audio/mpeg">
-                    Seu navegador não suporta o elemento de áudio.
-                </audio>
+                <div class="modal-body">
+                    <div class="audio-visualizer">
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                        <div class="bar"></div>
+                    </div>
+                    <audio id="audio-player" controls>
+                        <source src="" type="audio/mpeg">
+                        Seu navegador não suporta o elemento de áudio.
+                    </audio>
+                </div>
             </div>
         </div>
-    </div>
 
-    <script src="script.js"></script>
-    <script>
-        function sendToWhatsapp() {
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const phone = document.getElementById('phone').value;
-            const date = document.getElementById('date').value;
-            const message = document.getElementById('message').value;
+        <script src="script.js"></script>
+        <script>
+            function sendToWhatsapp() {
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const date = document.getElementById('date').value;
+                const message = document.getElementById('message').value;
 
-            if (!name || !phone) {
-                alert('Por favor, preencha pelo menos seu Nome e Telefone.');
-                return;
-            }
+                if (!name || !phone) {
+                    alert('Por favor, preencha pelo menos seu Nome e Telefone.');
+                    return;
+                }
 
-            const whatsappNumber = '5543991916007';
-    text = '*Olá! Gostaria de um orçamento para casamento.*\\n\\n';
-            text += '*Nome:* ' + name + '\\n';
-            text += '*E-mail:* ' + email + '\\n';
-            text += '*Telefone:* ' + phone + '\\n';
-            text += '*Data:* ' + date + '\\n';
-            text += '*Mensagem:* ' + message;
+                const whatsappNumber = '5543991916007';
+                text = '*Olá! Gostaria de um orçamento para casamento.*\\n\\n';
+                text += '*Nome:* ' + name + '\\n';
+                text += '*E-mail:* ' + email + '\\n';
+                text += '*Telefone:* ' + phone + '\\n';
+                text += '*Data:* ' + date + '\\n';
+                text += '*Mensagem:* ' + message;
 
-            const encodedText = encodeURIComponent(text);
-            const url = 'https://wa.me/' + whatsappNumber + '?text=' + encodedText;
-            window.open(url, '_blank   
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            sendToWhatsapp();
-        });
-    </script>
+                const encodedText = encodeURIComponent(text);
+                const url = 'https://wa.me/' + whatsappNumber + '?text=' + encodedText;
+                window.open(url, '_blank   
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    sendToWhatsapp();
+                });
+        </script>
 </body>
 
 </html>
