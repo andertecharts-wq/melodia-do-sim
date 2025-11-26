@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Melodia do Sim</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: linear-gradient(135deg, #C5908E 0%, #A47573 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .login-container {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            color: #C5908E;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .logo p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #4A4A4A;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #C5908E;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #C5908E 0%, #A47573 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+        }
+
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .error-message.show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-container">
+        <div class="logo">
+            <h1>🎵 Melodia do Sim</h1>
+            <p>Painel Administrativo</p>
+        </div>
+
+        <div class="error-message" id="errorMessage">
+            Usuário ou senha incorretos!
+        </div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Usuário</label>
+                <input type="text" id="username" required autocomplete="username">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" required autocomplete="current-password">
+            </div>
+
+            <button type="submit" class="btn-login">Entrar</button>
+        </form>
+    </div>
+
+    <script>
+        // Credenciais padrão (você pode mudar depois)
+        const CREDENTIALS = {
+            username: 'admin',
+            password: 'melodia2025'
+        };
+
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (username === CREDENTIALS.username && password === CREDENTIALS.password) {
+                // Salvar sessão
+                sessionStorage.setItem('authenticated', 'true');
+                sessionStorage.setItem('loginTime', new Date().getTime());
+
+                // Redirecionar para o painel
+                window.location.href = 'admin.html';
+            } else {
+                errorMessage.classList.add('show');
+                setTimeout(() => {
+                    errorMessage.classList.remove('show');
+                }, 3000);
+            }
+        });
+
+        // Se já estiver autenticado, redirecionar
+        if (sessionStorage.getItem('authenticated') === 'true') {
+            const loginTime = sessionStorage.getItem('loginTime');
+            const currentTime = new Date().getTime();
+            const hoursPassed = (currentTime - loginTime) / (1000 * 60 * 60);
+
+            // Sessão válida por 8 horas
+            if (hoursPassed < 8) {
+                window.location.href = 'admin.html';
+            } else {
+                sessionStorage.clear();
+            }
+        }
+    </script>
+</body>
+
+</html>
